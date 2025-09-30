@@ -86,6 +86,18 @@
       border-radius: 12px;
       font-size: 0.9rem;
     }
+
+    /* 小兔兔跳跃动画 */
+    @keyframes jump {
+      0% { transform: translateY(0); }
+      30% { transform: translateY(-20px); }
+      50% { transform: translateY(0); }
+      70% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    .jump {
+      animation: jump 0.5s ease;
+    }
   </style>
 </head>
 <body>
@@ -103,7 +115,7 @@
       <p>Bioinformatics</p>
       <p>She/Her</p>
       <p>Based in Saint Louis, U.S.</p>
-      <p>Washington University School of Medicine</p> <!-- 学校信息 -->
+      <p>Washington University School of Medicine</p>
       <p>Email: <a href="mailto:1995aileen@gmail.com">1995aileen@gmail.com</a></p>
       <h2>Skills</h2>
       <div class="skills">
@@ -137,7 +149,7 @@
     </div>
   </div>
 
-<!-- 点赞按钮（中英文版） -->
+<!-- 点赞按钮 -->
 <div id="like-container" style="
   position: fixed;
   top: 20px;
@@ -162,6 +174,7 @@
   const likeContainer = document.getElementById('like-container');
   const likeCountEl = document.getElementById('like-count');
   const likeTextEl = document.getElementById('like-text');
+  const likeIcon = document.getElementById('like-icon');
 
   // 从 localStorage 读取点赞数，如果没有就初始化为 0
   let likeCount = parseInt(localStorage.getItem('likeCount')) || 0;
@@ -174,9 +187,12 @@
 
     // 保存到 localStorage
     localStorage.setItem('likeCount', likeCount);
+
+    // 小兔兔跳跃动画
+    likeIcon.classList.add('jump');
+    setTimeout(() => likeIcon.classList.remove('jump'), 500); // 动画结束后移除
   });
 </script>
-
 
 </body>
 </html>
