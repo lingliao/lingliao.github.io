@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -86,6 +86,15 @@
       border-radius: 12px;
       font-size: 0.9rem;
     }
+    /* 小兔子点赞按钮动画 */
+    #like-icon.clicked {
+      animation: jump 0.3s ease;
+    }
+    @keyframes jump {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
@@ -103,7 +112,7 @@
       <p>Bioinformatics</p>
       <p>She/Her</p>
       <p>Based in Saint Louis, U.S.</p>
-      <p>Washington University School of Medicine</p> <!-- 学校信息 -->
+      <p>Washington University School of Medicine</p>
       <p>Email: <a href="mailto:1995aileen@gmail.com">1995aileen@gmail.com</a></p>
       <h2>Skills</h2>
       <div class="skills">
@@ -137,46 +146,60 @@
     </div>
   </div>
 
-<!-- 点赞按钮（中英文版） -->
-<div id="like-container" style="
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #ffefef;
-  padding: 10px 16px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  font-family: system-ui, sans-serif;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  user-select: none;
-">
-  <span id="like-icon" style="font-size: 1.5rem;">🐰</span>
-  <span id="like-text">欢迎点赞 / Welcome to Like</span>
-  <span id="like-count" style="margin-left: 6px; font-weight: bold;">0</span>
-</div>
+  <!-- 点赞按钮 -->
+  <div id="like-container" style="
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ffefef;
+    padding: 10px 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    font-family: system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+  ">
+    <span id="like-icon" style="font-size: 1.5rem;">🐰</span>
+    <span id="like-text">欢迎点赞 / Welcome to Like</span>
+    <span id="like-count" style="margin-left: 6px; font-weight: bold;">0</span>
+  </div>
 
-<script>
-  const likeContainer = document.getElementById('like-container');
-  const likeCountEl = document.getElementById('like-count');
-  const likeTextEl = document.getElementById('like-text');
+  <script>
+    const likeContainer = document.getElementById('like-container');
+    const likeCountEl = document.getElementById('like-count');
+    const likeTextEl = document.getElementById('like-text');
+    const likeIcon = document.getElementById('like-icon');
 
-  // 从 localStorage 读取点赞数，如果没有就初始化为 0
-  let likeCount = parseInt(localStorage.getItem('likeCount')) || 0;
-  likeCountEl.textContent = likeCount;
+    // 全局唯一命名空间
+    const namespace = 'ling-bio-likes';
+    const key = 'like';
 
-  likeContainer.addEventListener('click', () => {
-    likeCount++;
-    likeCountEl.textContent = likeCount;
-    likeTextEl.textContent = '感谢支持 / Thanks for your support';
+    // 页面加载时获取当前点赞数
+    fetch(`https://api.countapi.xyz/get/${namespace}/${key}`)
+      .then(res => res.json())
+      .then(data => {
+        likeCountEl.textContent = data.value;
+      });
 
-    // 保存到 localStorage
-    localStorage.setItem('likeCount', likeCount);
-  });
-</script>
+    // 点击点赞
+    likeContainer.addEventListener('click', () => {
+      // 小兔子动画
+      likeIcon.classList.add('clicked');
+      setTimeout(() => likeIcon.classList.remove('clicked'), 300);
 
+      // 调用 countapi.xyz 增加计数
+      fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+        .then(res => res.json())
+        .then(data => {
+          likeCountEl.textContent = data.value;
+        });
+
+      likeTextEl.textContent = '感谢支持 / Thanks for your support';
+    });
+  </script>
 
 </body>
 </html>
