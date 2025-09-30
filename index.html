@@ -162,12 +162,18 @@
   const likeContainer = document.getElementById('like-container');
   const likeCountEl = document.getElementById('like-count');
   const likeTextEl = document.getElementById('like-text');
-  let likeCount = 0;
+
+  // 从 localStorage 读取点赞数，如果没有就初始化为 0
+  let likeCount = parseInt(localStorage.getItem('likeCount')) || 0;
+  likeCountEl.textContent = likeCount;
 
   likeContainer.addEventListener('click', () => {
     likeCount++;
     likeCountEl.textContent = likeCount;
     likeTextEl.textContent = '感谢支持 / Thanks for your support';
+
+    // 保存到 localStorage
+    localStorage.setItem('likeCount', likeCount);
   });
 </script>
 
