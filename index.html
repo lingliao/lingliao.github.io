@@ -14,6 +14,17 @@
       background: #f9f9f9;
       color: #333;
     }
+    .top-links {
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      background: #f0f0f0;
+    }
+    .top-links a {
+      color: #0969da;
+      text-decoration: none;
+      font-weight: bold;
+    }
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -25,8 +36,8 @@
       width: 30%;
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 20px;
+      align-items: flex-start; /* left align */
     }
     .left-column img {
       width: 180px;
@@ -38,7 +49,6 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      align-items: center;
     }
     .links a {
       color: #0969da;
@@ -89,17 +99,18 @@
 </head>
 <body>
 
+  <!-- Top left links -->
+  <div class="top-links">
+    <a href="https://scholar.google.com/citations?user=I6BAcyIAAAAJ&hl=en" target="_blank">Google Scholar</a>
+    <a href="CV_LL_09_2025.pdf" target="_blank">Resume</a>
+  </div>
+
   <div class="container">
     <!-- Left Column -->
     <div class="left-column">
-      <img src="photo_2.jpg" alt="Ling Liao 2">
-      <h1>Ling Liao 👋</h1>
+      <img src="photo_3.JPG" alt="Ling Liao 2">
       <p class="lead">Bioinformatics • She/Her • Based in Saint Louis, U.S.</p>
       <p>Email: <a href="mailto:1995aileen@gmail.com">1995aileen@gmail.com</a></p>
-      <div class="links">
-        <a href="https://scholar.google.com/citations?user=I6BAcyIAAAAJ&hl=en" target="_blank">Google Scholar</a>
-        <a href="CV_LL_09_2025.pdf" target="_blank">Resume</a>
-      </div>
       <h2>Skills</h2>
       <div class="skills">
         <span class="skill">Python</span>
