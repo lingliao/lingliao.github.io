@@ -137,5 +137,40 @@
     </div>
   </div>
 
+<!-- 点赞按钮（中英文版） -->
+<div id="like-container" style="
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ffefef;
+  padding: 10px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-family: system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+">
+  <span id="like-icon" style="font-size: 1.5rem;">🐰</span>
+  <span id="like-text">欢迎点赞 / Welcome to Like</span>
+  <span id="like-count" style="margin-left: 6px; font-weight: bold;">0</span>
+</div>
+
+<script>
+  const likeContainer = document.getElementById('like-container');
+  const likeCountEl = document.getElementById('like-count');
+  const likeTextEl = document.getElementById('like-text');
+  let likeCount = 0;
+
+  likeContainer.addEventListener('click', () => {
+    likeCount++;
+    likeCountEl.textContent = likeCount;
+    likeTextEl.textContent = '感谢支持 / Thanks for your support';
+  });
+</script>
+
+
 </body>
 </html>
