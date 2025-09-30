@@ -167,26 +167,28 @@
     <span id="like-count" style="margin-left: 6px; font-weight: bold;">0</span>
   </div>
 
+  <!-- 点赞功能 JS -->
   <script>
     const likeContainer = document.getElementById('like-container');
     const likeCountEl = document.getElementById('like-count');
     const likeTextEl = document.getElementById('like-text');
     const likeIcon = document.getElementById('like-icon');
 
-    // 新的全局计数器 namespace/key
     const namespace = 'ling_bio_likes';
     const key = 'like_count';
 
-    // 页面加载时获取当前点赞数
-    fetch(`https://api.countapi.xyz/get/${namespace}/${key}`)
-      .then(res => res.json())
-      .then(data => {
-        likeCountEl.textContent = data.value || 0;
-      })
-      .catch(err => {
-        console.log('无法获取点赞数', err);
-        likeCountEl.textContent = 0;
-      });
+    // 页面加载时获取点赞数（hit 会自动创建）
+    function loadLikeCount() {
+      fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+        .then(res => res.json())
+        .then(data => {
+          likeCountEl.textContent = data.value || 0;
+        })
+        .catch(err => {
+          console.error('无法获取点赞数', err);
+          likeCountEl.textContent = 0;
+        });
+    }
 
     // 点击点赞
     likeContainer.addEventListener('click', () => {
@@ -197,11 +199,13 @@
         .then(res => res.json())
         .then(data => {
           likeCountEl.textContent = data.value;
+          likeTextEl.textContent = '感谢支持 / Thanks for your support';
         })
-        .catch(err => console.log('点赞失败', err));
-
-      likeTextEl.textContent = '感谢支持 / Thanks for your support';
+        .catch(err => console.error('点赞失败', err));
     });
+
+    // 初始化
+    loadLikeCount();
   </script>
 
 </body>
