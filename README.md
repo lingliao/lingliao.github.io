@@ -18,7 +18,7 @@ Welcome to my self-introduction repository. This repo contains a short bio, link
 ## Quick links
 - 🌐 [Portfolio / Site] [lingliao.github.io](https://lingliao.github.io)  
 - 🎓 [Google Scholar](https://scholar.google.com/citations?user=I6BAcyIAAAAJ&hl=en)  
-- 📄 [Resume / CV (PDF)](CV_LL_09_2025.pdf)  
+- 📄 [Resume / CV (PDF)]([CV_LL_09_2025.pdf](https://github.com/lingliao/lingliao.github.io/blob/main/CV_LL_09_2025.pdf))  
 
 ---
 
