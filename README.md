@@ -1,6 +1,6 @@
 # Hi — I'm Ling Liao 👋
 
-<img src="assets/avatar.png" alt="Ling Liao" width="180" align="right" />
+<img src="photo.JPG" alt="Ling Liao" width="180" align="right" />
 
 Welcome to my self-introduction repository. This repo contains a short bio, links to my work, and a small GitHub Pages site you can use as a personal landing page.
 
