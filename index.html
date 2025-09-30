@@ -8,7 +8,7 @@
   <style>
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      line-height: 1.6;
+      line-height: 1.4; /* 左边行间距稍紧 */
       margin: 0;
       padding: 0;
       background: #f9f9f9;
@@ -36,44 +36,40 @@
       width: 30%;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      align-items: flex-start; /* left align */
+      gap: 10px; /* 左边行间距更紧凑 */
+      align-items: flex-start;
     }
     .left-column img {
       width: 180px;
       height: 180px;
       border-radius: 50%;
       object-fit: cover;
+      opacity: 0.85;
     }
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .links a {
-      color: #0969da;
-      text-decoration: none;
+    .left-column p, .left-column h2 {
+      margin: 4px 0; /* 缩小上下间距 */
     }
     .right-column {
       width: 70%;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+      position: relative;
     }
     .hero-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 12px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      align-self: flex-end;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      opacity: 0.55; /* 默认整体透明度 */
     }
-    h1 {
-      margin: 0;
-      font-size: 2.2rem;
-    }
-    .lead {
-      color: #555;
-      margin: 8px 0 16px 0;
+    .intro {
+      position: relative;
+      z-index: 2;
+      background-color: rgba(255, 255, 255, 0.85); /* 文字背景85%透明 */
+      padding: 20px;
+      margin: 20px;
+      border-radius: 12px;
     }
     .skills {
       display: flex;
@@ -92,9 +88,6 @@
       padding: 20px;
       color: #888;
     }
-    .intro p {
-      margin-bottom: 16px;
-    }
   </style>
 </head>
 <body>
@@ -109,7 +102,9 @@
     <!-- Left Column -->
     <div class="left-column">
       <img src="photo_3.JPG" alt="Ling Liao 2">
-      <p class="lead">Bioinformatics • She/Her • Based in Saint Louis, U.S.</p>
+      <p>Bioinformatics</p>
+      <p>She/Her</p>
+      <p>Based in Saint Louis, U.S.</p>
       <p>Email: <a href="mailto:1995aileen@gmail.com">1995aileen@gmail.com</a></p>
       <h2>Skills</h2>
       <div class="skills">
