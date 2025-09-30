@@ -15,22 +15,47 @@
       color: #333;
     }
     .container {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 40px 20px;
-    }
-    .hero {
       display: flex;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 40px;
+      gap: 40px;
     }
-    .avatar {
+    .left-column {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .left-column img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+    .links a {
+      color: #0969da;
+      text-decoration: none;
+    }
+    .right-column {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .hero-img {
       width: 180px;
       height: 180px;
       border-radius: 12px;
       object-fit: cover;
-      flex-shrink: 0;
+      align-self: flex-end;
     }
     h1 {
       margin: 0;
@@ -39,13 +64,6 @@
     .lead {
       color: #555;
       margin: 8px 0 16px 0;
-    }
-    a {
-      color: #0969da;
-      text-decoration: none;
-    }
-    .links a {
-      margin-right: 16px;
     }
     .skills {
       display: flex;
@@ -64,40 +82,48 @@
       padding: 20px;
       color: #888;
     }
+    .intro p {
+      margin-bottom: 16px;
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
-
-    <div class="hero">
-      <img src="photo.JPG" alt="Ling Liao" class="avatar">
-      <img src="photo_2.jpg" alt="Ling Liao 2" class="avatar">
-      <div>
-        <h1>Ling Liao 👋</h1>
-        <p class="lead">Bioinformatics • She/Her • Based in Saint Louis, U.S.</p>
-        <p>Email: <a href="mailto:1995aileen@gmail.com">1995aileen@gmail.com</a></p>
-        <div class="links">
-          <a href="https://scholar.google.com/citations?user=I6BAcyIAAAAJ&hl=en" target="_blank">Google Scholar</a>
-          <a href="CV_LL_09_2025.pdf" target="_blank"> Resume </a>
-        </div>
+    <!-- Left Column -->
+    <div class="left-column">
+      <img src="photo_2.jpg" alt="Ling Liao 2">
+      <h1>Ling Liao 👋</h1>
+      <p class="lead">Bioinformatics • She/Her • Based in Saint Louis, U.S.</p>
+      <p>Email: <a href="mailto:1995aileen@gmail.com">1995aileen@gmail.com</a></p>
+      <div class="links">
+        <a href="https://scholar.google.com/citations?user=I6BAcyIAAAAJ&hl=en" target="_blank">Google Scholar</a>
+        <a href="CV_LL_09_2025.pdf" target="_blank">Resume</a>
+      </div>
+      <h2>Skills</h2>
+      <div class="skills">
+        <span class="skill">Python</span>
+        <span class="skill">PyTorch</span>
+        <span class="skill">scikit-learn</span>
+        <span class="skill">Scanpy</span>
+        <span class="skill">tidyverse</span>
+        <span class="skill">Docker</span>
+        <span class="skill">Bash</span>
+        <span class="skill">Git</span>
+        <span class="skill">English</span>
+        <span class="skill">Chinese</span>
       </div>
     </div>
 
-    <h2>Skills</h2>
-    <div class="skills">
-      <span class="skill">Python</span>
-      <span class="skill">PyTorch</span>
-      <span class="skill">scikit-learn</span>
-      <span class="skill">Scanpy</span>
-      <span class="skill">tidyverse</span>
-      <span class="skill">Docker</span>
-      <span class="skill">Bash</span>
-      <span class="skill">Git</span>
-      <span class="skill">English</span>
-      <span class="skill">Chinese</span>
+    <!-- Right Column -->
+    <div class="right-column">
+      <img src="photo.JPG" alt="Ling Liao" class="hero-img">
+      <div class="intro">
+        <p>Hello! I’m Ling Liao, a passionate bioinformatician with a focus on computational biology and data-driven insights. I enjoy turning complex biological data into meaningful visualizations and predictions.</p>
+        <p>My expertise spans multiple programming languages and bioinformatics tools, including Python, R, and PyTorch. I have experience in single-cell analysis, genomic studies, and machine learning applications in biology.</p>
+        <p>I am committed to advancing scientific research through rigorous data analysis, reproducible workflows, and collaborative projects. I am always eager to connect with fellow researchers and contribute to open science initiatives.</p>
+      </div>
     </div>
-
   </div>
 
   <footer>
