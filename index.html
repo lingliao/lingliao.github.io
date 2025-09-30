@@ -8,7 +8,7 @@
   <style>
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      line-height: 1.4; /* 左边行间距稍紧 */
+      line-height: 1.4;
       margin: 0;
       padding: 0;
       background: #f9f9f9;
@@ -36,7 +36,7 @@
       width: 30%;
       display: flex;
       flex-direction: column;
-      gap: 10px; /* 左边行间距更紧凑 */
+      gap: 10px;
       align-items: flex-start;
     }
     .left-column img {
@@ -47,7 +47,7 @@
       opacity: 0.85;
     }
     .left-column p, .left-column h2 {
-      margin: 4px 0; /* 缩小上下间距 */
+      margin: 4px 0;
     }
     .right-column {
       width: 70%;
@@ -61,15 +61,19 @@
       top: 0;
       left: 0;
       z-index: 1;
-      opacity: 0.55; /* 默认整体透明度 */
+      opacity: 0.55;
     }
     .intro {
       position: relative;
       z-index: 2;
-      background-color: rgba(255, 255, 255, 0.85); /* 文字背景85%透明 */
+      background-color: rgba(255, 255, 255, 0.85);
       padding: 20px;
       margin: 20px;
       border-radius: 12px;
+    }
+    .intro ul li {
+      margin-bottom: 12px;
+      line-height: 1.5;
     }
     .skills {
       display: flex;
@@ -81,12 +85,6 @@
       padding: 4px 12px;
       border-radius: 12px;
       font-size: 0.9rem;
-    }
-    footer {
-      text-align: center;
-      margin-top: 60px;
-      padding: 20px;
-      color: #888;
     }
   </style>
 </head>
@@ -105,6 +103,7 @@
       <p>Bioinformatics</p>
       <p>She/Her</p>
       <p>Based in Saint Louis, U.S.</p>
+      <p>Washington University School of Medicine</p> <!-- 学校信息 -->
       <p>Email: <a href="mailto:1995aileen@gmail.com">1995aileen@gmail.com</a></p>
       <h2>Skills</h2>
       <div class="skills">
@@ -126,7 +125,7 @@
       <img src="photo.JPG" alt="Ling Liao" class="hero-img">
       <div class="intro">
         <p>Hello!👋 I’m Ling Liao, a bioinformatics Ph.D. candidate passionate about developing interpretable machine learning and deep learning models for predictive analysis of multi-source biomedical data.</p>
-    
+
         <h3>Research Experience</h3>
         <ul>
           <li><strong>Therapeutic Targets Identification:</strong> Develop deep learning frameworks to predict co-regulated gene expression from micro-level histopathology image spots, identifying potential therapeutic targets in breast and lung cancers.</li>
@@ -136,10 +135,7 @@
         </ul>
       </div>
     </div>
-
-  <footer>
-    © 2025 Ling Liao • Built with ❤️ • <a href="https://github.com/lingliao/lingliao.github.io" target="_blank">Source</a>
-  </footer>
+  </div>
 
 </body>
 </html>
