@@ -4,7 +4,7 @@ Welcome to my self-introduction repository. This repo contains a short bio, link
 
 ## About me
 - **Name:** Ling Liao
-- **Role:Bioinformatics
+- **Role:** Bioinformatics
 - **Location:** Saint Louis, U.S.
 - **Pronouns:** She/Her
 - **Email:** 1995aileen@gmail.com
